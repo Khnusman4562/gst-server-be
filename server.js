@@ -1,6 +1,13 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
+const Docxtemplater = require("docxtemplater");
+const PizZip = require("pizzip");
+const { toWords } = require("number-to-words");
+
+
 
 const app = express();
 app.use(cors()); // ✅ Properly enabled CORS

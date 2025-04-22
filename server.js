@@ -102,8 +102,9 @@ app.post("/generate-invoice", async (req, res) => {
     console.log("📤 Sending this data to the template:\n", JSON.stringify(docData, null, 2));
 
     // ✅ Read template from correct path
-    const templatePath = path.join(process.cwd(), "invoice1.docx");
+    const templatePath = path.join(process.cwd(), "templates", "invoice1.docx");
     const content = fs.readFileSync(templatePath, "binary");
+    
     const zip = new PizZip(content);
     const doc = new Docxtemplater(zip);
     doc.setData(docData);
